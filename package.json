@@ -1,0 +1,34 @@
+{
+  "name": "developars-db",
+  "version": "1.0.0",
+  "description": "Developars.club Project - Database module",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/developars/developars-db.git"
+  },
+  "author": "Carlos Azaustre <cazaustre@gmail.com> (https://carlosazaustre.es)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/developars/developars-db/issues"
+  },
+  "homepage": "https://github.com/developars/developars-db#readme",
+  "devDependencies": {
+    "@firebase/testing": "^0.5.0",
+    "husky": "^1.2.0",
+    "standard": "^12.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "firebase-admin": "^6.4.0"
+  }
+}
