@@ -1,7 +1,5 @@
 'use strict'
 
-const Profile = require('../models/profiles')
-
 const collection = jest.fn(() => {
   return {
     doc: jest.fn(() => {
@@ -12,6 +10,8 @@ const collection = jest.fn(() => {
         get: jest.fn(() => Promise.resolve(true))
       }
     }),
+    get: jest.fn(() => Promise.resolve(true)),
+    add: jest.fn(() => Promise.resolve(true)),
     where: jest.fn(() => {
       return {
         get: jest.fn(() => Promise.resolve(true)),
@@ -21,26 +21,16 @@ const collection = jest.fn(() => {
   }
 })
 
-const firestore = () => {
+const firestoreStub = jest.fn(() => {
   return {
     collection
   }
+})
+
+const adminStub = {
+  firestoreStub
 }
 
-const admin = {}
-admin.firestore = firestore
-
-// Tests
-test('Database', async () => {
-  const db = admin.firestore()
-  expect(db).toBeDefined()
-})
-
-test('Profile', async () => {
-  const db = admin.firestore()
-  let profile = new Profile(db)
-  expect(profile).toBeDefined()
-  expect(profile.create).toBeDefined()
-  expect(profile.getAll).toBeDefined()
-  expect(profile.get).toBeDefined()
-})
+module.exports = {
+  dbStub: adminStub.firestoreStub()
+}

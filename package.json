@@ -4,7 +4,7 @@
   "description": "Developars.club Project - Database module",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --notify",
     "lint": "standard"
   },
   "repository": {
