@@ -37,5 +37,10 @@ test('Database', async () => {
 })
 
 test('Profile', async () => {
-
+  const db = admin.firestore()
+  let profile = new Profile(db)
+  expect(profile).toBeDefined()
+  expect(profile.create).toBeDefined()
+  expect(profile.getAll).toBeDefined()
+  expect(profile.get).toBeDefined()
 })
