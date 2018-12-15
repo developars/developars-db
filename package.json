@@ -4,7 +4,9 @@
   "description": "Developars.club Project - Database module",
   "main": "index.js",
   "scripts": {
-    "test": "jest --notify",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "lint": "standard"
   },
   "repository": {
@@ -27,6 +29,12 @@
       "pre-commit": "npm run lint && npm test",
       "pre-push": "npm run lint"
     }
+  },
+  "standard": {
+    "ignore": [
+      "**/__mocks__",
+      "**/__tests__"
+    ]
   },
   "dependencies": {
     "firebase-admin": "^6.4.0"
